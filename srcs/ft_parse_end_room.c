@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 21:03:46 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/02/21 23:04:41 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/02/22 18:41:58 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_parse_end_room(char *line, t_in *p, t_rooms *r)
 	char	**arr;
 
 	arr = ft_strsplit(line, ' ');
-	if (arr[0] == NULL || arr[3] != NULL)
+	if (arr[0] == NULL || arr[1] == NULL || arr[2] == NULL || arr[3] != NULL)
 		ft_errors("ERROR");
 	if (ft_strchr(arr[0], '-') != NULL)
 		ft_errors("ERROR");
