@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:34:25 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/02/21 21:15:08 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/02/21 23:05:56 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,26 @@ typedef struct	s_in
 	int			end;
 	int			end_r;
 	int			end_l;
-	char		**rooms;
-	char		*links;
 }				t_in;
 
-void			ft_parse_end_room(char *line, t_in *p);
-void			ft_parse_links(char *line, t_in *p);
-void			ft_parse_start(char *line, t_in *p);
-void			ft_parse_rooms(char *line, t_in *p);
-void			ft_parse_noa(char *line, t_in *p);
-void			lem_in(char *line, t_in *p);
-void			ft_errors(char *error);
-void			ft_init_in(t_in *p);
+typedef struct	s_rooms
+{
+	char			*name;
+	int				x;
+	int				y;
+	struct s_rooms	**link;
+	struct s_rooms	*next;
+	struct s_rooms	*prev;
+}					t_rooms;
+
+void				ft_parse_end_room(char *line, t_in *p, t_rooms *r);
+void				ft_parse_rooms(char *line, t_in *p, t_rooms *r);
+void				ft_parse_links(char *line, t_in *p, t_rooms *r);
+void				lem_in(char *line, t_in *p, t_rooms *r);
+void				ft_parse_start(char *line, t_in *p);
+void				ft_parse_noa(char *line, t_in *p);
+void				ft_init_rooms(t_rooms *r);
+void				ft_errors(char *error);
+void				ft_init_in(t_in *p);
 
 #endif

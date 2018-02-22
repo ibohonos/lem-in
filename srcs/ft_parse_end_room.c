@@ -6,13 +6,13 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 21:03:46 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/02/21 21:17:08 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/02/21 23:04:41 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	ft_parse_end_room(char *line, t_in *p)
+void	ft_parse_end_room(char *line, t_in *p, t_rooms *r)
 {
 	char	**arr;
 
@@ -22,4 +22,8 @@ void	ft_parse_end_room(char *line, t_in *p)
 	if (ft_strchr(arr[0], '-') != NULL)
 		ft_errors("ERROR");
 	p->end_r = 1;
+	r->name = arr[0];
+	r->x = ft_atoi(arr[1]);
+	r->y = ft_atoi(arr[2]);
+	r->next = NULL;
 }

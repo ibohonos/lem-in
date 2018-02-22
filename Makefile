@@ -6,7 +6,7 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 16:27:17 by ibohonos          #+#    #+#              #
-#    Updated: 2018/02/21 21:06:18 by ibohonos         ###   ########.fr        #
+#    Updated: 2018/02/21 22:51:22 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC_DIR 	= ./srcs
 INCL_DIR 	= ./includes
 SRC_NAME	= main.c lem_in.c ft_errors.c ft_init_in.c ft_parse_noa.c \
 				ft_parse_start.c ft_parse_rooms.c ft_parse_end_room.c \
-				ft_parse_links.c
+				ft_parse_links.c ft_init_rooms.c
 OBJ_NAME	= $(SRC_NAME:.c=.o)
 OBJ 		= $(addprefix $(OBJ_DIR)/, $(OBJ_NAME))
 SRC 		= $(addprefix $(SRC_DIR)/, $(SRC_NAME))
