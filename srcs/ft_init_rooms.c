@@ -17,6 +17,9 @@ void	ft_init_rooms(t_rooms *r)
 	r->name = NULL;
 	r->x = -1;
 	r->y = -1;
+	r->free = 1;
+	r->start = 0;
+	r->end = 0;
 	r->link = NULL;
 	r->next = NULL;
 	r->prev = NULL;

@@ -12,16 +12,17 @@
 
 #include "lem_in.h"
 
-void	ft_parse_links(char *line, t_in *p, t_rooms *r, t_rooms *h)
+void	ft_parse_links(char *line, t_in *p, t_rooms *r)
 {
 	char	**arr;
 
-	p->end_l = 1;
+	if (ft_strchr(line, '-') != NULL)
+		ft_parse_rooms(line, p, r);
 	arr = ft_strsplit(line, '-');
 	if (arr[0] == NULL || arr[1] == NULL || arr[2] != NULL)
 		ft_errors("ERROR");
-	r = h;
-	ft_find_first(arr[0], arr[1], r);
+	ft_find_links(arr[0], arr[1], r);
+	p->end_l = 1;
 //	ft_find_second(arr[1], r);
 
 }

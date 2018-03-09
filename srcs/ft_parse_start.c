@@ -12,9 +12,12 @@
 
 #include "lem_in.h"
 
-void	ft_parse_start(char *line, t_in *p)
+void	ft_parse_start(char *line, t_in *p, t_rooms *r)
 {
-	if (ft_strcmp(line, "##start") != 0)
+	if (ft_isdigit(line[0]))
+		ft_parse_rooms(line, p, r);
+	else if (ft_strcmp(line, "##start") != 0)
 		ft_errors("ERROR");
-	p->start = 1;
+	else
+		p->start = 1;
 }
