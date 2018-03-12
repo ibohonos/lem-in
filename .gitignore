@@ -1,5 +1,5 @@
-.idea/
-.vscode/
-cmake-build-debug/
-libft/obj/
-obj/
+/.idea
+/.vscode
+/cmake-build-debug
+/libft/obj
+/obj
