@@ -38,43 +38,55 @@ stdlib.h
 unistd.h
 -
 
-D:/UNIT/lem-in/srcs/ft_errors.c
+/Users/ibohonos/Documents/mygit/lem-in/srcs/ft_errors.c
 lem_in.h
-D:/UNIT/lem-in/srcs/lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
 
-D:/UNIT/lem-in/srcs/ft_init_in.c
+/Users/ibohonos/Documents/mygit/lem-in/srcs/ft_find_links.c
 lem_in.h
-D:/UNIT/lem-in/srcs/lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
 
-D:/UNIT/lem-in/srcs/ft_init_rooms.c
+/Users/ibohonos/Documents/mygit/lem-in/srcs/ft_find_road.c
 lem_in.h
-D:/UNIT/lem-in/srcs/lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
 
-D:/UNIT/lem-in/srcs/ft_parse_end_room.c
+/Users/ibohonos/Documents/mygit/lem-in/srcs/ft_init_in.c
 lem_in.h
-D:/UNIT/lem-in/srcs/lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
 
-D:/UNIT/lem-in/srcs/ft_parse_links.c
+/Users/ibohonos/Documents/mygit/lem-in/srcs/ft_init_rooms.c
 lem_in.h
-D:/UNIT/lem-in/srcs/lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
 
-D:/UNIT/lem-in/srcs/ft_parse_noa.c
+/Users/ibohonos/Documents/mygit/lem-in/srcs/ft_parse_end_room.c
 lem_in.h
-D:/UNIT/lem-in/srcs/lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
 
-D:/UNIT/lem-in/srcs/ft_parse_rooms.c
+/Users/ibohonos/Documents/mygit/lem-in/srcs/ft_parse_links.c
 lem_in.h
-D:/UNIT/lem-in/srcs/lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
 
-D:/UNIT/lem-in/srcs/ft_parse_start.c
+/Users/ibohonos/Documents/mygit/lem-in/srcs/ft_parse_noa.c
 lem_in.h
-D:/UNIT/lem-in/srcs/lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
 
-D:/UNIT/lem-in/srcs/lem_in.c
+/Users/ibohonos/Documents/mygit/lem-in/srcs/ft_parse_rooms.c
 lem_in.h
-D:/UNIT/lem-in/srcs/lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
 
-D:/UNIT/lem-in/srcs/main.c
+/Users/ibohonos/Documents/mygit/lem-in/srcs/ft_parse_start.c
 lem_in.h
-D:/UNIT/lem-in/srcs/lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
+
+/Users/ibohonos/Documents/mygit/lem-in/srcs/ft_parse_start_room.c
+lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
+
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.c
+lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
+
+/Users/ibohonos/Documents/mygit/lem-in/srcs/main.c
+lem_in.h
+/Users/ibohonos/Documents/mygit/lem-in/srcs/lem_in.h
 

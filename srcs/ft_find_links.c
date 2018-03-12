@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_first.c                                    :+:      :+:    :+:   */
+/*   ft_find_links.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 19:26:25 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/02/22 19:26:25 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/12 19:51:09 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int		ft_check_links( t_rooms *r,  t_rooms *s)
+static void	ft_set_link_room(t_rooms *r, t_rooms *s)
+{
+	r->link = (t_links *)malloc(sizeof(t_links));
+	r->link->room = s;
+	r->link->next = NULL;
+}
+
+static int	ft_check_links( t_rooms *r,  t_rooms *s)
 {
 	while (r->link != NULL)
 	{
@@ -23,7 +30,7 @@ int		ft_check_links( t_rooms *r,  t_rooms *s)
 	return (0);
 }
 
-void	ft_find_links(char *s1, char *s2, t_rooms *r)
+void		ft_find_links(char *s1, char *s2, t_rooms *r)
 {
 	t_rooms	*s;
 
@@ -48,7 +55,5 @@ void	ft_find_links(char *s1, char *s2, t_rooms *r)
 		return ;
 	while (r->link != NULL)
 		r->link = r->link->next;
-	r->link = (t_links *)malloc(sizeof(t_links));
-	r->link->room = s;
-	r->link->next = NULL;
+	ft_set_link_room(r, s);
 }

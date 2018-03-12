@@ -21,15 +21,19 @@ void    ft_parse_start_room(char *line, t_in *p, t_rooms *r)
 		ft_errors("ERROR");
 	if (ft_strchr(arr[0], '-') != NULL)
 		ft_errors("ERROR");
-	while (r != NULL)
-	{
-		if (ft_strcmp(arr[0], r->name) == 0)
-			ft_errors("ERROR");
-		else if (r->x == ft_atoi(arr[1]) && r->y == ft_atoi(arr[2]))
-			ft_errors("ERROR");
-	}
-	r = (t_rooms *)malloc(sizeof(t_rooms));
-	ft_init_rooms(r);
+    while (r->name != NULL)
+    {
+        if (ft_strcmp(arr[0], r->name) == 0)
+            ft_errors("ERROR");
+        else if (r->x == ft_atoi(arr[1]) && r->y == ft_atoi(arr[2]))
+            ft_errors("ERROR");
+        if (r->next == NULL)
+        {
+            r->next = (t_rooms *)malloc(sizeof(t_rooms));
+            ft_init_rooms(r->next);
+        }
+        r = r->next;
+    }
 	r->name = arr[0];
 	r->x = ft_atoi(arr[1]);
 	r->y = ft_atoi(arr[2]);

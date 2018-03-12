@@ -18,7 +18,7 @@ add_executable(lem-in
         srcs/ft_parse_rooms.c
         srcs/ft_parse_start.c
         srcs/lem_in.c
-        srcs/main.c srcs/ft_parse_start_room.c)
+        srcs/main.c srcs/ft_parse_start_room.c srcs/ft_find_links.c srcs/ft_find_road.c)
 
 add_library(libft STATIC IMPORTED) # Создание статической библиотеки с именем libft
 set_property(TARGET libft PROPERTY
