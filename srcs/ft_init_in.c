@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:54:05 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/02/22 16:29:13 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/13 19:25:01 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,6 @@ void	ft_init_in(t_in *p)
 	p->end = 0;
 	p->end_r = 0;
 	p->end_l = 0;
+	p->start_room = NULL;
+	p->end_room = NULL;
 }

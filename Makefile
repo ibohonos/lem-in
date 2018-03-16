@@ -6,11 +6,13 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 16:27:17 by ibohonos          #+#    #+#              #
-#    Updated: 2018/03/12 19:42:44 by ibohonos         ###   ########.fr        #
+#    Updated: 2018/03/14 17:01:29 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = lem-in
+NAME_L = lem.a
+BONUS = visual
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
@@ -21,9 +23,10 @@ LIB_INC		= $(LIB_DIR)/includes
 SRC_DIR 	= ./srcs
 INCL_DIR 	= ./includes
 SRC_NAME	= main.c lem_in.c ft_errors.c ft_init_in.c ft_parse_noa.c \
-				ft_parse_start.c ft_parse_rooms.c ft_parse_end_room.c \
-				ft_parse_links.c ft_init_rooms.c ft_find_links.c \
-				ft_parse_start_room.c ft_find_road.c
+				ft_parse_rooms.c ft_parse_end_room.c ft_parse_links.c \
+				ft_init_rooms.c ft_find_links.c ft_parse_start_room.c \
+				ft_find_road.c ft_find_command.c
+SRC_BONUS	= srcs/visual.c
 OBJ_NAME	= $(SRC_NAME:.c=.o)
 OBJ 		= $(addprefix $(OBJ_DIR)/, $(OBJ_NAME))
 SRC 		= $(addprefix $(SRC_DIR)/, $(SRC_NAME))
@@ -52,6 +55,12 @@ fclean: clean
 	@echo "\x1B[3;31mCleaning LIBFT exe\x1B[0m"
 	@make -C libft fclean
 	@echo "\x1B[3;31mCleaning exe\x1B[0m"
-	@/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME) $(NAME_L) $(BONUS)
 
 re: fclean all
+
+bonus:
+	@echo "\x1B[3;34mCompilling:\x1B[0m \x1B[3;33mbonus\x1B[0m"
+	@ar rc $(NAME_L) $(OBJ)
+	@ranlib $(NAME_L)
+	@$(CC) $(FLAGS) -I $(LIB_INC) -I $(INCL_DIR) -o $(BONUS) $(SRC_BONUS) -L $(LIB_DIR) -lft $(NAME_L)

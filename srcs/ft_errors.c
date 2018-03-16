@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:47:42 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/02/22 16:29:13 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/13 18:38:42 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_errors(char *error)
 {
-	ft_printf(RED "%s\n" RESET, error);
+	ft_printf(RED "ERROR: %s\n" RESET, error);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 19:26:25 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/12 19:51:09 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/13 19:58:09 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	ft_set_link_room(t_rooms *r, t_rooms *s)
 	r->link->next = NULL;
 }
 
-static int	ft_check_links( t_rooms *r,  t_rooms *s)
+static int	ft_check_links(t_rooms *r,  t_rooms *s)
 {
 	while (r->link != NULL)
 	{
@@ -50,7 +50,7 @@ void		ft_find_links(char *s1, char *s2, t_rooms *r)
 			break ;
 	}
 	if (r == NULL || s == NULL)
-		ft_errors("Bad link name");
+		ft_errors("bad link name.");
 	if (ft_check_links(r, s))
 		return ;
 	while (r->link != NULL)
