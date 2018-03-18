@@ -6,7 +6,7 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/24 16:55:15 by ibohonos          #+#    #+#              #
-#    Updated: 2018/03/13 18:13:27 by ibohonos         ###   ########.fr        #
+#    Updated: 2018/03/18 19:58:23 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ SRC 		= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 			ft_type_zn.c ft_type_n.c ft_type_wchar.c ft_type_b.c \
 			ft_type_cl.c ft_strupper.c ft_print_precision.c \
 			ft_count_len_bits.c ft_count_len_bit.c ft_type_x_help_ifs.c \
-			get_next_line.c
+			get_next_line.c ft_free_arr.c ft_list_counter.c ft_sqrt.c
 
 all: $(NAME)
 

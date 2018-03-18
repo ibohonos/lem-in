@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 19:26:25 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/13 19:58:09 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/18 18:31:21 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void		ft_find_links(char *s1, char *s2, t_rooms *r)
 	}
 	if (r == NULL || s == NULL)
 		ft_errors("bad link name.");
+		// return ;
 	if (ft_check_links(r, s))
 		return ;
 	while (r->link != NULL)

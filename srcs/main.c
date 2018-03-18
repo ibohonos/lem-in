@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:31:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/13 20:11:41 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/18 19:49:21 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ int	main(int argc, char **argv)
 	lem_in("", &p, &r);
 	close(fd);
 	ft_free_all(&p, &r);
+	// system("leaks lem-in");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 21:03:46 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/13 19:26:10 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/18 18:54:14 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ void	ft_parse_end_room(char *line, t_in *p, t_rooms *r)
 	r->y = ft_atoi(arr[2]);
 	p->end = 2;
 	p->end_room = r;
+	ft_free_arr(&arr);
 }

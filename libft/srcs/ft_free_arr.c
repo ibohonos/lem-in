@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_links.c                                   :+:      :+:    :+:   */
+/*   ft_free_arr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/21 21:06:48 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/18 18:53:54 by ibohonos         ###   ########.fr       */
+/*   Created: 2018/01/11 18:32:44 by ibohonos          #+#    #+#             */
+/*   Updated: 2018/03/18 19:54:31 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "libft.h"
 
-void	ft_parse_links(char *line, t_in *p, t_rooms *r)
+void	ft_free_arr(char ***arr)
 {
-	char	**arr;
+	int i;
 
-	if (ft_strchr(line, '-') == NULL && p->end_l == 0)
-	{
-		ft_parse_rooms(line, r);
-		return ;
-	}
-	arr = ft_strsplit(line, '-');
-	if (arr[0] == NULL || arr[1] == NULL || arr[2] != NULL)
-		ft_errors("it's not link.");
-	ft_find_links(arr[0], arr[1], r);
-	p->end_l = 1;
-	ft_free_arr(&arr);
+	i = 0;
+	while ((*arr)[i] != NULL)
+		ft_strdel((*arr) + i++);
+	free(*arr);
+	*arr = NULL;
 }

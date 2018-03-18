@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 20:27:14 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/13 19:11:27 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/18 18:54:00 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,5 @@ void	ft_parse_rooms(char *line, t_rooms *r)
 	r->name = arr[0];
 	r->x = ft_atoi(arr[1]);
 	r->y = ft_atoi(arr[2]);
+	ft_free_arr(&arr);
 }
