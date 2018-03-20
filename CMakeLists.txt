@@ -22,7 +22,7 @@ add_executable(lem-in
         srcs/ft_find_links.c
         srcs/ft_find_road.c
         srcs/ft_find_command.c
-        srcs/ft_free_arr.c
+        srcs/ft_error_room.c
         )
 
 add_library(libft STATIC IMPORTED) # Создание статической библиотеки с именем libft

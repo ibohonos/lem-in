@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:34:25 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/18 19:54:39 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/20 19:08:14 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct		s_rooms
 	char			*name;
 	int				x;
 	int				y;
+	int				ant;
 	int				free;
 	struct s_links	*link;
 	struct s_rooms	*next;
@@ -61,6 +62,7 @@ void				ft_find_command(char *line, t_in *p);
 void				ft_find_road(t_in *p, t_rooms *r);
 void				ft_parse_noa(char *line, t_in *p);
 void				ft_init_rooms(t_rooms *r);
+void				ft_error_room(char **arr);
 void				ft_errors(char *error);
 void				ft_init_in(t_in *p);
 

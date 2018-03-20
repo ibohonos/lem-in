@@ -6,7 +6,7 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 16:27:17 by ibohonos          #+#    #+#              #
-#    Updated: 2018/03/18 19:55:32 by ibohonos         ###   ########.fr        #
+#    Updated: 2018/03/20 17:08:11 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ INCL_DIR 	= ./includes
 SRC_NAME	= main.c lem_in.c ft_errors.c ft_init_in.c ft_parse_noa.c \
 				ft_parse_rooms.c ft_parse_end_room.c ft_parse_links.c \
 				ft_init_rooms.c ft_find_links.c ft_parse_start_room.c \
-				ft_find_road.c ft_find_command.c
+				ft_find_road.c ft_find_command.c ft_error_room.c
 SRC_BONUS	= srcs/visual.c
 OBJ_NAME	= $(SRC_NAME:.c=.o)
 OBJ 		= $(addprefix $(OBJ_DIR)/, $(OBJ_NAME))

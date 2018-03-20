@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_links.c                                   :+:      :+:    :+:   */
+/*   ft_error_room.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/21 21:06:48 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/20 19:08:23 by ibohonos         ###   ########.fr       */
+/*   Created: 2018/03/20 17:06:59 by ibohonos          #+#    #+#             */
+/*   Updated: 2018/03/20 17:07:43 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	ft_parse_links(char *line, t_in *p, t_rooms *r)
+void	ft_error_room(char **arr)
 {
-	char	**arr;
-
-	if (ft_strchr(line, '-') == NULL && p->end_l == 0)
-	{
-		ft_parse_rooms(line, r);
-		return ;
-	}
-	arr = ft_strsplit(line, '-');
-	if (arr[0] == NULL || arr[1] == NULL || arr[2] != NULL)
-		ft_errors("it's not a link.");
-	ft_find_links(arr[0], arr[1], r);
-	p->end_l = 1;
-	ft_free_arr(&arr);
+	if (arr[0] == NULL || arr[1] == NULL || arr[2] == NULL || arr[3] != NULL)
+		ft_errors("it's not a room.");
+	if (ft_strchr(arr[0], '-') != NULL || arr[0][0] == 'L' || arr[0][0] == '#')
+		ft_errors("wrong name room.");
 }

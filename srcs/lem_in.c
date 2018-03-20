@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:41:38 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/13 19:20:02 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/20 19:14:11 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	lem_in(char *line, t_in *p, t_rooms *r)
 		ft_parse_noa(line, p);
 	else if (line[0] == '#')
 		ft_find_command(line, p);
-	else if (p->end_l == 2)
-		ft_find_road(p, r);
 	else if (p->start == 1)
 		ft_parse_start_room(line, p, r);
 	else if (p->end == 1)

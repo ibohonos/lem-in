@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 22:51:06 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/13 19:26:22 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/20 17:21:24 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_init_rooms(t_rooms *r)
 	r->name = NULL;
 	r->x = -1;
 	r->y = -1;
+	r->ant = 0;
 	r->free = 1;
 	r->link = NULL;
 	r->next = NULL;

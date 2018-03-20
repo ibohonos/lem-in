@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 20:27:14 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/18 18:54:00 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/20 19:11:56 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ void	ft_parse_rooms(char *line, t_rooms *r)
 	char	**arr;
 
 	arr = ft_strsplit(line, ' ');
-	if (arr[0] == NULL || arr[1] == NULL || arr[2] == NULL || arr[3] != NULL)
-		ft_errors("it's not room.");
-	if (ft_strchr(arr[0], '-') != NULL || arr[0][0] == 'L' || arr[0][0] == '#')
-		ft_errors("wrong name room.");
+	ft_error_room(arr);
 	while (r->name != NULL)
 	{
 		if (ft_strcmp(arr[0], r->name) == 0)

@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:31:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/18 19:49:21 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/03/20 20:20:00 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,22 @@ int	main(int argc, char **argv)
 	else
 		fd = 0;
 	line = NULL;
-	// fd = open("/Users/ibohonos/Documents/mygit/lem-in/test2", O_RDONLY);
 	ft_init_in(&p);
 	ft_init_rooms(&r);
 	while (get_next_line(fd, &line) > 0)
 	{
+		// system("leaks lem-in");
+		// exit(0);
+		// while (1);
 		ft_printf("%s\n", line);
 		lem_in(line, &p, &r);
-		ft_strdel(&line);
+		free(line);
 	}
 	if (p.end_l == 0)
 		ft_errors("no links.");
-	p.end_l = 2;
-	lem_in("", &p, &r);
+	ft_find_road(&p, &r);
 	close(fd);
 	ft_free_all(&p, &r);
-	// system("leaks lem-in");
+	//system("leaks lem-in");
 	return (0);
 }
