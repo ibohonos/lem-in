@@ -6,62 +6,86 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 15:43:29 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/20 20:24:16 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/04/15 15:08:35 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "get_next_line.h"
 
-static void	ft_join_str(char **str, int fd)
+static char		*ft_join_free(char *s1, char *s2)
 {
-	int		rf;
-	char	buf[BUFF_SIZE + 1];
-	char	*file;
+	int		i;
+	int		j;
+	char	*tmp;
 
-	while (!ft_strchr(*str, '\n') && (rf = read(fd, buf, BUFF_SIZE)) > 0)
-	{
-		file = *str;
-		buf[rf] = '\0';
-		*str = ft_strjoin(*str, buf);
-		ft_strdel(&file);
-	}
-	if (rf == -1)
-		return ;
-	// return (str);
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
+	tmp = (char*)ft_memalloc(sizeof(char) * (i + j + 1));
+	i = -1;
+	while (s1 && s1[++i])
+		tmp[i] = s1[i];
+	if (s1)
+		free(s1);
+	j = -1;
+	while (s2 && s2[++j])
+		tmp[i + j] = s2[j];
+	return (tmp);
 }
 
-static void	ft_join_line(char *str, char **line)
+static int		ft_check_line(char **stock, char **line)
 {
-	if (ft_strchr(str, '\n'))
-		*line = ft_strsub(str, 0, ft_strchr(str, '\n') - str);
-	else
-		*line = ft_strdup(str);
-}
+	char	*str;
+	char	*tmp;
 
-int			get_next_line(const int fd, char **line)
-{
-	static char	*str[4096];
-
-	if (!line || fd < 0 || fd > 4096 || BUFF_SIZE < 0)
-		return (-1);
-	if (!str[fd])
-		str[fd] = ft_strnew(0);
-	if (!str[fd])
-		return (-1);
-	ft_join_str(&(str[fd]), fd);
-	printf("%d\n", fd);
-	if (!str[fd])
-		return (-1);
-	ft_join_line(str[fd], line);
-	if (ft_strchr(str[fd], '\n'))
-		str[fd] = ft_strsub(str[fd], ft_strchr(str[fd], '\n') - str[fd] + 1,
-				ft_strlen(str[fd]));
-	else
-		ft_strdel(&str[fd]);
-	system("leaks lem-in");
-	if (!str[fd] && ft_strlen(*line) == 0)
+	tmp = *stock;
+	str = ft_strchr(*stock, '\n');
+	if (!str)
 		return (0);
-	exit(0);
+	*str = '\0';
+	*line = ft_strdup(*stock);
+	*stock = ft_strdup(str + 1);
+	free(tmp);
 	return (1);
+}
+
+static int		ft_last_line(char **stock, char **line)
+{
+	*line = ft_strdup(*stock);
+	free(*stock);
+	*stock = NULL;
+	if (*line[0] == '\0')
+	{
+		free(*line);
+		*line = NULL;
+		return (0);
+	}
+	return (1);
+}
+
+int				get_next_line(int const fd, char **line)
+{
+	static char	*s[2048];
+	char		buff[BUFF_SIZE + 1];
+	int			ret;
+
+	if (fd < 0 || fd > 2048 || !line || BUFF_SIZE < 0)
+		return (-1);
+	if (s[fd] && ft_check_line(&(s[fd]), line))
+		return (1);
+	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
+	{
+		buff[ret] = '\0';
+		if (s[fd])
+			s[fd] = ft_join_free(s[fd], buff);
+		else
+			s[fd] = ft_strdup(buff);
+		if (ft_check_line(&(s[fd]), line))
+			return (1);
+	}
+	if (s[fd] && ret >= 0)
+		return (ft_last_line(&(s[fd]), line));
+	if (ret > 0)
+		return (1);
+	else
+		return (ret);
 }

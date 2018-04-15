@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 16:31:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/03/20 20:20:00 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/04/15 16:11:57 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,15 @@ int	main(int argc, char **argv)
 	ft_init_rooms(&r);
 	while (get_next_line(fd, &line) > 0)
 	{
-		// system("leaks lem-in");
-		// exit(0);
-		// while (1);
 		ft_printf("%s\n", line);
 		lem_in(line, &p, &r);
-		free(line);
+		ft_strdel(&line);
 	}
 	if (p.end_l == 0)
 		ft_errors("no links.");
 	ft_find_road(&p, &r);
 	close(fd);
 	ft_free_all(&p, &r);
-	//system("leaks lem-in");
+	// system("leaks lem-in");
 	return (0);
 }
