@@ -38,10 +38,10 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) $(FLAGS) -I $(LIB_INC) -I $(INCL_DIR) -c $< -o $@
 
 $(NAME):
-	@echo "\x1B[3;32mCompilling LIBFT\x1B[0m"
-	@make -C libft
 	@mkdir -p $(OBJ_DIR)
 	@$(MAKE) $(OBJ)
+	@echo "\x1B[3;32mCompilling LIBFT\x1B[0m"
+	@make -C libft
 	@echo "\x1B[3;32mCreate exe\x1B[0m"
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME) -I $(LIB_INC) -L $(LIB_DIR) -lft
 
