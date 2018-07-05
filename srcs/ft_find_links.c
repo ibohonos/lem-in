@@ -14,9 +14,16 @@
 
 static void	ft_set_link_room(t_rooms *r, t_rooms *s)
 {
+	while (r->link != NULL)
+		r->link = r->link->next;
 	r->link = (t_links *)malloc(sizeof(t_links));
 	r->link->room = s;
 	r->link->next = NULL;
+	while (s->link != NULL)
+		s->link = s->link->next;
+	s->link = (t_links *)malloc(sizeof(t_links));
+	s->link->room = r;
+	s->link->next = NULL;
 }
 
 static int	ft_check_links(t_rooms *r,  t_rooms *s)
@@ -26,6 +33,12 @@ static int	ft_check_links(t_rooms *r,  t_rooms *s)
 		if (r->link->room == s)
 			return (1);
 		r->link = r->link->next;
+	}
+	while (s->link != NULL)
+	{
+		if (s->link->room == r)
+			return (1);
+		s->link = s->link->next;
 	}
 	return (0);
 }
@@ -51,10 +64,7 @@ void		ft_find_links(char *s1, char *s2, t_rooms *r)
 	}
 	if (r == NULL || s == NULL)
 		ft_errors("bad link name.");
-		// return ;
 	if (ft_check_links(r, s))
 		return ;
-	while (r->link != NULL)
-		r->link = r->link->next;
 	ft_set_link_room(r, s);
 }
