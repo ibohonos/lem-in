@@ -12,7 +12,7 @@
 
 #include "lem_in.h"
 
-void    ft_parse_start_room(char *line, t_in *p, t_rooms *r)
+void	ft_parse_start_room(char *line, t_in *p, t_rooms *r)
 {
 	char	**arr;
 
