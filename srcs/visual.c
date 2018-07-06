@@ -77,7 +77,7 @@ int		main(void)
 	ft_init_rooms(&r);
 	while (get_next_line(0, &line) > 0 && line[0] != '\0')
 	{
-		// ft_printf(GRN"%s\n"RESET, line);
+		ft_printf(GRN"%s\n"RESET, line);
 		lem_in(line, &p, &r);
 		ft_strdel(&line);
 	}

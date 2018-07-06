@@ -12,6 +12,19 @@
 
 #include "lem_in.h"
 
+static void	ft_count_rooms(t_in *p, t_rooms *r)
+{
+	t_rooms	*tmp;
+
+	tmp = r;
+	while (tmp)
+	{
+		p->room_nbr++;
+		tmp = tmp->next;
+	}
+	free(tmp);
+}
+
 void	ft_free_all(t_in *p, t_rooms *r)
 {
 	ft_init_in(p);
@@ -53,6 +66,7 @@ int	main(int argc, char **argv)
 	}
 	if (p.end_l == 0)
 		ft_errors("no links.");
+	ft_count_rooms(&p, &r);
 	ft_find_road(&p, &r);
 	close(fd);
 	ft_free_all(&p, &r);

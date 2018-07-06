@@ -23,8 +23,12 @@ typedef struct		s_in
 	int				end;
 	int				end_r;
 	int				end_l;
+	int				gc;
+	int				room_nbr;
+	int				len_way;
 	struct s_rooms	*start_room;
 	struct s_rooms	*end_room;
+	struct s_links	*way;
 }					t_in;
 
 typedef struct		s_links
