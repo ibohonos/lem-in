@@ -31,7 +31,7 @@ void	ft_parse_rooms(char *line, t_rooms *r)
 		}
 		r = r->next;
 	}
-	r->name = arr[0];
+	r->name = ft_strdup(arr[0]);
 	r->x = ft_atoi(arr[1]);
 	r->y = ft_atoi(arr[2]);
 	ft_free_arr(&arr);

@@ -18,14 +18,14 @@
 
 typedef struct		s_in
 {
-	int				noa;
+	uintmax_t		noa;
 	int				start;
 	int				end;
 	int				end_r;
 	int				end_l;
 	int				gc;
-	int				room_nbr;
-	int				len_way;
+	uintmax_t		room_nbr;
+	intmax_t		len_way;
 	struct s_rooms	*start_room;
 	struct s_rooms	*end_room;
 	struct s_links	*way;
@@ -42,7 +42,7 @@ typedef struct		s_rooms
 	char			*name;
 	int				x;
 	int				y;
-	int				ant;
+	uintmax_t		ant;
 	int				free;
 	struct s_links	*link;
 	struct s_rooms	*next;
@@ -55,19 +55,23 @@ typedef struct		s_map
 	int				y;
 }					t_map;
 
-void    			ft_parse_start_room(char *line, t_in *p, t_rooms *r);
+void				ft_parse_start_room(char *line, t_in *p, t_rooms *r);
+int					ft_send_new_ants(t_in *p, uintmax_t *ant, int res);
 void				ft_parse_end_room(char *line, t_in *p, t_rooms *r);
 void				ft_parse_start(char *line, t_in *p, t_rooms *r);
 void				ft_parse_links(char *line, t_in *p, t_rooms *r);
 void				ft_find_links(char *s1, char *s2, t_rooms *r);
+void				ft_print_send_ants(t_in *p, uintmax_t *ant);
 void				lem_in(char *line, t_in *p, t_rooms *r);
 void				ft_parse_rooms(char *line, t_rooms *r);
 void				ft_find_command(char *line, t_in *p);
 void				ft_find_road(t_in *p, t_rooms *r);
 void				ft_parse_noa(char *line, t_in *p);
+t_links				*ft_swap_way(t_links *way);
 void				ft_init_rooms(t_rooms *r);
 void				ft_error_room(char **arr);
 void				ft_errors(char *error);
+int					ft_send_ants(t_in *p);
 void				ft_init_in(t_in *p);
 
 #endif

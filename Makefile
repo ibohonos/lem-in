@@ -12,7 +12,6 @@
 
 NAME = lem-in
 NAME_L = lem.a
-BONUS = visual
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
@@ -25,7 +24,8 @@ INCL_DIR 	= ./includes
 SRC_NAME	= main.c lem_in.c ft_errors.c ft_init_in.c ft_parse_noa.c \
 				ft_parse_rooms.c ft_parse_end_room.c ft_parse_links.c \
 				ft_init_rooms.c ft_find_links.c ft_parse_start_room.c \
-				ft_find_road.c ft_find_command.c ft_error_room.c
+				ft_find_road.c ft_find_command.c ft_error_room.c \
+				ft_send_ants.c
 SRC_BONUS	= srcs/visual.c
 OBJ_NAME	= $(SRC_NAME:.c=.o)
 OBJ 		= $(addprefix $(OBJ_DIR)/, $(OBJ_NAME))
@@ -55,12 +55,6 @@ fclean: clean
 	@echo "\x1B[3;31mCleaning LIBFT exe\x1B[0m"
 	@make -C libft fclean
 	@echo "\x1B[3;31mCleaning exe\x1B[0m"
-	@/bin/rm -f $(NAME) $(NAME_L) $(BONUS)
+	@/bin/rm -f $(NAME) $(NAME_L)
 
 re: fclean all
-
-bonus:
-	@echo "\x1B[3;34mCompilling:\x1B[0m \x1B[3;33mbonus\x1B[0m"
-	@ar rc $(NAME_L) $(OBJ)
-	@ranlib $(NAME_L)
-	@$(CC) $(FLAGS) -I $(LIB_INC) -I $(INCL_DIR) -o $(BONUS) $(SRC_BONUS) -L $(LIB_DIR) -lft $(NAME_L)

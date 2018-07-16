@@ -25,31 +25,12 @@ static void	ft_count_rooms(t_in *p, t_rooms *r)
 	free(tmp);
 }
 
-void	ft_free_all(t_in *p, t_rooms *r)
-{
-	ft_init_in(p);
-	while (r != NULL)
-	{
-		ft_strdel(&r->name);
-		while (r->link != NULL)
-		{
-			r->link->room = NULL;
-			r->link = r->link->next;
-		}
-		free(r->link);
-		r->link = NULL;
-		r = r->next;
-	}
-	free(r);
-	r = NULL;
-}
-
-int	main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	char	*line;
 	t_in	p;
 	t_rooms	r;
-	int fd;
+	int		fd;
 
 	if (argc == 2)
 		fd = open(argv[1], O_RDONLY);
@@ -69,7 +50,6 @@ int	main(int argc, char **argv)
 	ft_count_rooms(&p, &r);
 	ft_find_road(&p, &r);
 	close(fd);
-	ft_free_all(&p, &r);
-	// system("leaks lem-in");
+	system("leaks lem-in");
 	return (0);
 }
